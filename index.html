@@ -4,62 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skate or Die</title>
+
     <script type="module" src="./js/main.js"></script>
+
     <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'neon-yellow': '#ffff00', 'dark-bg': '#111' }
+                }
+            }
+        }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <div class="top-bar">Ad roll</div> <div class="main-header">
-            <div class="logo-container">
-                <img src="logo" alt="Skate or Die logotyp">
-                <h1>Skate or Die</h1>
+<body class="bg-dark-bg text-white font-sans antialiased flex flex-col min-h-screen">
+
+<header class="border-b border-gray-800 p-6 sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Skate or Die logotyp" class="h-10 w-auto"> <h1 class="text-2xl font-black italic tracking-tighter uppercase">Skate or Die</h1>
+        </div>
+
+        <nav>
+            <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
+                <li><a href="index.html" class="text-neon-yellow underline decoration-2 underline-offset-4">Start</a></li>
+                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
+                <li><a href="news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
+                <li><a href="contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
+            <form class="flex items-center border border-gray-700 bg-black/50 p-1">
+                <input class="bg-transparent text-white px-2 py-1 text-sm focus:outline-none w-32 placeholder-gray-500" placeholder="Sök…">
+                <button type="submit" class="bg-white text-black text-xs font-bold px-3 py-1 uppercase hover:bg-neon-yellow transition-colors">Search</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<main class="flex-grow w-full">
+
+    <section class="grid grid-cols-1 md:grid-cols-3 h-[80vh] w-full">
+
+        <a href="men.html" class="relative group overflow-hidden border-r border-gray-800">
+            <img src="assets/menSection.png" alt="Herr mode" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h2 class="text-5xl font-black uppercase tracking-tighter text-white drop-shadow-lg group-hover:text-neon-yellow transition-colors">Herr</h2>
             </div>
-
-            <section class="category-grid">
-        <a href="men.html" class="category-card">
-            <img src="assets/menSection.png" alt="Herr mode">
-            <span class="category-text">Herr</span>
         </a>
 
-        <a href="skate.html" class="category-card">
-            <img src="assets/skateSection.png" alt="Skate action">
-            <span class="category-text">Skate</span>
+        <a href="skate.html" class="relative group overflow-hidden border-r border-gray-800">
+            <img src="assets/skateSection.png" alt="Skate action" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h2 class="text-5xl font-black uppercase tracking-tighter text-white drop-shadow-lg group-hover:text-neon-yellow transition-colors">Skate</h2>
+            </div>
         </a>
 
-        <a href="women.html" class="category-card">
-            <img src="assets/womenSection.png" alt="Dam mode">
-            <span class="category-text">Dam</span>
+        <a href="women.html" class="relative group overflow-hidden">
+            <img src="assets/womenSection.png" alt="Dam mode" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h2 class="text-5xl font-black uppercase tracking-tighter text-white drop-shadow-lg group-hover:text-neon-yellow transition-colors">Dam</h2>
+            </div>
         </a>
     </section>
 
-            <div class="actions">
-                <button type="button">Login</button>
+    <section class="bg-neon-yellow text-black py-12 text-center">
+        <h3 class="text-3xl font-black uppercase mb-4">Missa inget!</h3>
+        <p class="font-bold mb-6">Kolla in våra senaste nyheter och drops.</p>
+        <a href="news.html" class="inline-block border-2 border-black px-8 py-3 text-xl font-black uppercase hover:bg-black hover:text-white transition-colors">
+            LÄS NYHETER
+        </a>
+    </section>
 
-                <form class="search" role="search">
-                    <label for="site-search" class="visually-hidden">Sök</label> <input id="site-search" placeholder="Sök…">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </header>
+</main>
 
-        <main>
-            <!-- Grid layout -->
-            <section>
-                <img src="herr" alt="Herr">
-                <img src="skate" alt="Skate">
-                <img src="dam" alt="Dam">
-            </section>
-
-            <section class="gift-tips">
-                <a href="news.html">
-                    <img src="#">
-                    <h3>Nyheter</h3>
-                </a>
-            </section>
-        </main>
 </body>
 </html>
