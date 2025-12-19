@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Men - Skate or Die</title>
-    <link rel="stylesheet" href="./css/style.css">
-    </head>
-<body>
-    <header>
-       </header>
+    <title>Skate or Die - Men</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="module" src="./js/main.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'neon-yellow': '#ffff00',
+                        'dark-bg': '#111',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white font-sans antialiased">
+
+<header class="border-b border-gray-800 p-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Skate or Die logotyp" class="h-10 w-auto"> <h1 class="text-2xl font-black italic tracking-tighter uppercase">Skate or Die</h1>
+        </div>
+
+        <nav>
+            <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
+                <li><a href="index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
+                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
+                <li><a href="news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
+                <li><a href="contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
+
+            <form class="flex items-center border border-gray-700 bg-black/50 p-1" role="search">
+                <label for="search-input-c" class="sr-only">Search</label>
+                <input id="search-input-c" class="bg-transparent text-white px-2 py-1 text-sm focus:outline-none w-32 placeholder-gray-500" placeholder="Search...">
+                <button type="submit" class="bg-white text-black text-xs font-bold px-3 py-1 uppercase hover:bg-neon-yellow transition-colors">Search</button>
+            </form>
+        </div>
+    </div>
+</header>
 
     <main class="subcategory-page">
         <h1>Men</h1>
