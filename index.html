@@ -12,29 +12,34 @@
 </head>
 <body>
     <header>
-        <div>Ad roll</div>
-
-        <div>
-            <div>
+        <div class="top-bar">Ad roll</div> <div class="main-header">
+            <div class="logo-container">
                 <img src="logo" alt="Skate or Die logotyp">
                 <h1>Skate or Die</h1>
             </div>
 
-            <nav class="nav">
-                <ul>
-                    <li><a href="#">Skate</a></li>
-                    <li><a href="#">Herr</a></li>
-                    <li><a href="#">Dam</a></li>
-                    <li><a href="#">Unisex</a></li>
-                </ul>
-            </nav>
+            <section class="category-grid">
+        <a href="men.html" class="category-card">
+            <img src="assets/menSection.png" alt="Herr mode">
+            <span class="category-text">Herr</span>
+        </a>
+
+        <a href="skate.html" class="category-card">
+            <img src="assets/skateSection.png" alt="Skate action">
+            <span class="category-text">Skate</span>
+        </a>
+
+        <a href="women.html" class="category-card">
+            <img src="assets/womenSection.png" alt="Dam mode">
+            <span class="category-text">Dam</span>
+        </a>
+    </section>
 
             <div class="actions">
                 <button type="button">Login</button>
 
                 <form class="search" role="search">
-                    <label>Sök</label>
-                    <input placeholder="Sök…">
+                    <label for="site-search" class="visually-hidden">Sök</label> <input id="site-search" placeholder="Sök…">
                     <button type="submit">Search</button>
                 </form>
             </div>
