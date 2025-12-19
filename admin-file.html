@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkateOrDie | Back Office</title>
+</head>
+<body>
+
+    <header>
+        <h1>Admin Dashboard</h1>
+        <hr>
+    </header>
+
+    <section id="add-product">
+        <h2>7a - Add Product</h2>
+        <form id="productForm">
+            <p>Title: <input type="text" id="productTitle" required></p>
+            <p>Price: <input type="number" id="productPrice" required></p>
+            <p>Description: <input type="text" id="productDesc" required></p>
+            <p>Main Category (e.g. Herr): <input type="text" id="mainCat"></p>
+            <p>Sub Category (e.g. Tröjer): <input type="text" id="subCat"></p>
+            <p>Type (e.g. Hoodies): <input type="text" id="prodType"></p>
+            <p>Image Path: <input type="text" id="productImage" placeholder="images/item.png"></p>
+            
+            <button type="submit">Save Product</button>
+        </form>
+    </section>
+
+    <script>
+        // 1. Your Product Structure
+        class Product {
+            constructor(title, price, description, mainCategory, subCategory, type, image) {
+                this.id = Date.now(); // unique ID based on time
+                this.title = title;
+                this.price = price;
+                this.description = description;
+                this.category = {
+                    main: mainCategory,
+                    sub: subCategory,
+                    type: type
+                };
+                this.image = image || "assets/placeholder.png"; 
+            }
+        }
+
+        // 2. Handle Form Submission
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            // Grab values from the simple HTML inputs
+            const title = document.getElementById('productTitle').value;
+            const price = document.getElementById('productPrice').value;
+            const desc = document.getElementById('productDesc').value;
+            const main = document.getElementById('mainCat').value;
+            const sub = document.getElementById('subCat').value;
+            const type = document.getElementById('prodType').value;
+            const img = document.getElementById('productImage').value;
+
+            // 3. Create a NEW instance using your class structure
+            const newProduct = new Product(title, price, desc, main, sub, type, img);
+
+            // 4. Log the object to see the structured data
+            console.log("Structured Product Created:", newProduct);
+            
+            alert("Saved: " + newProduct.title + " (ID: " + newProduct.id + ")");
+            
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
