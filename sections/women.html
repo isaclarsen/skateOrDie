@@ -6,7 +6,7 @@
     <title>Skate or Die - Women</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script type="module" src="./js/main.js"></script>
+    <script src="../js/script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,15 +39,15 @@
 
         <nav>
             <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
-                <li><a href="index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
-                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
-                <li><a href="news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
-                <li><a href="contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
+                <li><a href="../index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
+                <li><a href="../products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
+                <li><a href="../news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
+                <li><a href="../contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
             </ul>
         </nav>
 
         <div class="flex items-center gap-4">
-            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
+            <a href="../admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
 
             <form class="flex items-center border border-gray-700 bg-black/50 p-1" role="search">
                 <label for="search-input-c" class="sr-only">Search</label>
@@ -58,44 +58,108 @@
     </div>
 </header>
 
-    <main class="subcategory-page">
-        <h1>Women</h1>
+<main class="max-w-7xl mx-auto p-6">
+    <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-8 text-white border-b border-gray-800 pb-4">
+        Women <span class="text-neon-yellow not-italic text-2xl align-top">/ Collection</span>
+    </h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+        <aside class="md:col-span-1 space-y-8">
+            
+            <section>
+                <h2 class="text-neon-yellow font-black uppercase text-xl mb-4 tracking-wide border-b border-gray-800 pb-2">Shirts</h2>
+                <ul class="space-y-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                    <li>
+                        <a href="#" onclick="filterWomen('type', 'Graphic Tees'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Graphic Tees
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterWomen('type', 'Hoodies & Sweatshirts'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Hoodies
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-neon-yellow font-black uppercase text-xl mb-4 tracking-wide border-b border-gray-800 pb-2">Pants</h2>
+                <ul class="space-y-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                    <li>
+                        <a href="#" onclick="filterWomen('type', 'Jeans'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Jeans
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterWomen('type', 'Andra byxor'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Other pants
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-neon-yellow font-black uppercase text-xl mb-4 tracking-wide border-b border-gray-800 pb-2">Shoes</h2>
+                <ul class="space-y-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                    <li>
+                        <a href="#" onclick="filterWomen('type', 'Skate skor'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Skate Shoes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterWomen('type', 'Slides'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Slides
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            
+            <div class="pt-6 border-t border-gray-800">
+                <button onclick="filterWomen('all')" class="group w-full bg-white text-black font-black uppercase py-3 hover:bg-neon-yellow transition-colors tracking-widest text-xs border border-transparent hover:border-white flex justify-center items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    Visa Alla
+                </button>
+            </div>
+        </aside>
+
+        <div class="md:col-span-3">
+            <div id="product-list-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Denna funktion är anpassad för Womens-sidan (Dam)
+    function filterWomen(criteria, value) {
         
-        <div class="subcategory-list">
-            <section class="sub-group">
-                <h2>Shirts</h2>
-                <ul>
-                    <li><a href="#">Graphic Tees</a></li>
-                    <li><a href="#">Hoodies & Sweatshirts</a></li>
-                </ul>
-            </section>
+        let filteredList = [];
 
-            <section class="sub-group">
-                <h2>Pants</h2>
-                <ul>
-                    <li><a href="#">Jeans</a></li>
-                    <li><a href="#">Other pants</a></li>
-                </ul>
-            </section>
+        if (criteria === 'all') {
+            // Hämta allt som är kategoriserat som "Dam"
+            filteredList = products.filter(p => p.category.main === "Dam");
+        } else {
+            // Hämta det som är "Dam" OCH matchar klicket (t.ex. 'type' === 'Jeans')
+            filteredList = products.filter(p => 
+                p.category.main === "Dam" && p.category[criteria] === value
+            );
+        }
 
-            <section class="sub-group">
-                <h2>Skor</h2>
-                <ul>
-                    <li><a href="#">Skate shoes</a></li>
-                    <li><a href="#">Slides</a></li>
-                </ul>
-            </section>
+        renderProducts(filteredList);
+    }
 
-            <section class="sub-group">
-                <h2><a href="#">Jackets</a></h2>
-            </section>
-        </div>
+    // Körs när sidan laddas -> Visa alla Dam-kläder
+    document.addEventListener("DOMContentLoaded", () => {
+        filterWomen('all');
+    });
+</script>
 
-
-        <div id="product-list-container">
-            <h3>Products: </h3>
-        </div>
-    </main>
-
-    </body>
+</body>
 </html>
