@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkateOrDie - Adminn</title>
+    <title>SkateOrDie - Admin</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script  src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,73 +16,115 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'neon-yellow': '#ffff00',
-                        'dark-bg': '#111',
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'neon-yellow': '#ffff00', 'dark-bg': '#111' }
                 }
             }
         }
     </script>
+    <style>
+        /* Snyggare scrollbar för dark mode */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffff00; }
+    </style>
 </head>
-<body class="bg-dark-bg text-white font-sans antialiased">
+<body class="bg-dark-bg text-white font-sans antialiased min-h-screen">
 
-
-<header class="border-b border-gray-800 p-6">
+<header class="border-b border-gray-800 p-6 bg-black/50 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-
         <div class="flex items-center gap-3">
-            <img src="logo.png" alt="Skate or Die logotyp" class="h-10 w-auto"> <h1 class="text-2xl font-black italic tracking-tighter uppercase">Skate or Die</h1>
+            <img src="https://via.placeholder.com/40" alt="Logo" class="h-10 w-auto"> 
+            <h1 class="text-2xl font-black italic tracking-tighter uppercase">Skate or Die <span class="text-neon-yellow">Admin</span></h1>
         </div>
 
         <nav>
             <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
                 <li><a href="index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
-                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
-                <li><a href="news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
-                <li><a href="contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
+                <li><a href="products.html" class="hover:text-neon-yellow transition-colors text-gray-400">Shop</a></li>
+                <li><a href="news.html" class="hover:text-neon-yellow transition-colors text-gray-400">News</a></li>
             </ul>
         </nav>
 
         <div class="flex items-center gap-4">
-            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors text-neon-yellow underline decoration-2 underline-offset-4">Login</a>
-
-            <form class="flex items-center border border-gray-700 bg-black/50 p-1" role="search">
-                <label for="search-input-c" class="sr-only">Search</label>
-                <input id="search-input-c" class="bg-transparent text-white px-2 py-1 text-sm focus:outline-none w-32 placeholder-gray-500" placeholder="Search...">
-                <button type="submit" class="bg-white text-black text-xs font-bold px-3 py-1 uppercase hover:bg-neon-yellow transition-colors">Search</button>
-            </form>
+            <a href="#" class="text-xs font-black uppercase text-red-600 hover:text-white transition-colors italic">Logga ut</a>
         </div>
     </div>
 </header>
 
-    <section id="add-product">
-        <h2>7a - Add Product</h2>
-        <form id="productForm">
-            <p>Title: <input type="text" id="productTitle" required></p>
-            <p>Price: <input type="number" id="productPrice" required></p>
-            <p>Description: <input type="text" id="productDesc" required></p>
-            <p>Main Category (e.g. Herr): <input type="text" id="mainCat"></p>
-            <p>Sub Category (e.g. Tröjer): <input type="text" id="subCat"></p>
-            <p>Type (e.g. Hoodies): <input type="text" id="prodType"></p>
-            <p>Image Path: <input type="text" id="productImage" placeholder="images/item.png"></p>
+<main class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <section class="lg:col-span-5">
+        <div class="bg-black border border-gray-800 p-8 sticky top-28">
+            <h2 class="text-2xl font-black uppercase italic mb-6 border-l-4 border-neon-yellow pl-4">Lägg till produkt</h2>
             
-            <button type="submit">Save Product</button>
-        </form>
+            <form id="productForm" class="space-y-5">
+                <div>
+                    <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Produktnamn</label>
+                    <input type="text" id="productTitle" required class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Pris (SEK)</label>
+                        <input type="number" id="productPrice" required class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Typ (t.ex. Hoodie)</label>
+                        <input type="text" id="prodType" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Huvudkategori</label>
+                        <input type="text" id="mainCat" placeholder="Herr / Dam" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Underkategori</label>
+                        <input type="text" id="subCat" placeholder="Tröjor" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Beskrivning</label>
+                    <textarea id="productDesc" rows="3" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Bildsökväg</label>
+                    <input type="text" id="productImage" placeholder="images/item.png" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all mt-1 text-gray-400">
+                </div>
+                
+                <button type="submit" class="w-full bg-neon-yellow text-black font-black uppercase py-4 tracking-tighter hover:bg-white transition-all transform hover:-translate-y-1 italic">
+                    Spara i lagret
+                </button>
+            </form>
+        </div>
     </section>
 
- <script>
-    // Se till att ID matchar HTML: "productForm" istället för "add-product-form"
+    <section class="lg:col-span-7">
+        <div class="bg-black/40 border border-gray-800 p-8 h-full">
+            <h2 class="text-2xl font-black uppercase italic mb-6 flex justify-between items-center">
+                Aktuellt Lager
+                <span class="text-[10px] not-italic font-bold bg-white text-black px-2 py-1 uppercase tracking-tighter">Live</span>
+            </h2>
+            
+            <div id="product-list-container" class="space-y-4">
+                <p class="text-gray-600 italic text-sm text-center py-20 border-2 border-dashed border-gray-800">Laddar in produkter...</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
     const form = document.getElementById('productForm');
     
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault(); 
 
-            // Hämta värden med DE ID-namn som faktiskt finns i din HTML ovan
             const title = document.getElementById('productTitle').value;
             const price = document.getElementById('productPrice').value;
             const desc = document.getElementById('productDesc').value;
@@ -92,13 +133,12 @@
             const type = document.getElementById('prodType').value;
             const image = document.getElementById('productImage').value;
 
-            // Kontrollera att addProduct-funktionen (från script.js) är laddad
             if (typeof addProduct === "function") {
                 addProduct(title, price, desc, mainCat, subCat, type, image);
-                alert("Produkt tillagd!");
+                alert("Boom! Produkten är live.");
                 e.target.reset(); 
             } else {
-                console.error("Funktionen addProduct hittades inte. Kontrollera att script.js laddas korrekt.");
+                console.error("Kunde inte hitta addProduct i script.js");
             }
         });
     }
