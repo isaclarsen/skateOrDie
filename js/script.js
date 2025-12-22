@@ -169,3 +169,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// --- INITIERING AV DATABAS ---
+
+function initDatabase() {
+    // Om listan 'products' är tom (dvs inget fanns i LocalStorage)
+    if (products.length === 0) {
+        
+        const startProducts = [
+            { title: "Logo Graphic Tee", price: 349, desc: "Klassisk skate t-shirt.", main: "Herr", sub: "Tröjor", type: "Graphic Tees", image: "https://placehold.co/400x500/111/ffff00?text=T-Shirt" },
+            { title: "Baggy Denim Jeans", price: 899, desc: "Lös passform.", main: "Herr", sub: "Byxor", type: "Jeans", image: "https://placehold.co/400x500/111/ffff00?text=Jeans" },
+            { title: "Oversized Hoodie", price: 699, desc: "Mjuk hoodie.", main: "Dam", sub: "Tröjor", type: "Hoodies & Sweatshirts", image: "https://placehold.co/400x500/111/ffff00?text=Hoodie" },
+            { title: "Cargo Skate Pants", price: 749, desc: "Slitstarka byxor.", main: "Dam", sub: "Byxor", type: "Andra byxor", image: "https://placehold.co/400x500/111/ffff00?text=Cargo+Pants" },
+            { title: "Pro Skate Deck 8.25", price: 649, desc: "7-lagers lönn.", main: "Skate tillbehör", sub: "Decks", type: "Decks", image: "https://placehold.co/400x500/111/ffff00?text=Deck" },
+            { title: "Spitfire Wheels 54mm", price: 499, desc: "Hårda hjul.", main: "Skate tillbehör", sub: "Wheels & Bearings", type: "Wheels & Bearings", image: "https://placehold.co/400x500/111/ffff00?text=Wheels" },
+            { title: "Beanie Black", price: 199, desc: "Värmande mössa.", main: "Unisex", sub: "Accessories", type: "Headwear", image: "https://placehold.co/400x500/111/ffff00?text=Beanie" },
+            { title: "Canvas Backpack", price: 549, desc: "Ryggsäck.", main: "Unisex", sub: "Accessories", type: "Väskor", image: "https://placehold.co/400x500/111/ffff00?text=Bag" }
+        ];
+
+        console.log("Databas tom. Laddar in standardprodukter...");
+
+        startProducts.forEach(p => {
+            // OBS: Jag ändrade 'img' till 'image' i objektet ovan för att matcha din addProduct
+            addProduct(p.title, p.price, p.desc, p.main, p.sub, p.type, p.image);
+        });
+    }
+}
+
+// Kör funktionen direkt när scriptet laddas
+initDatabase();
