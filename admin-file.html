@@ -94,7 +94,7 @@
 
                 <div class="space-y-1">
                     <label class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Bildsökväg (Image Path)</label>
-                    <input type="text" id="productImage" placeholder="images/item.png" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all">
+                    <input type="file" id="productImage" placeholder="images/item.png" class="w-full bg-dark-bg border border-gray-700 p-3 text-sm focus:border-neon-yellow outline-none transition-all">
                 </div>
                 
                 <button type="submit" class="w-full bg-white text-black font-black uppercase py-4 mt-4 hover:bg-neon-yellow transition-all transform hover:-translate-y-1 italic tracking-tighter">
@@ -116,29 +116,46 @@
 </main>
 
 <script>
-    const form = document.getElementById('productForm');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); 
+const form = document.getElementById('productForm');
 
-            const title = document.getElementById('productTitle').value;
-            const price = document.getElementById('productPrice').value;
-            const desc = document.getElementById('productDesc').value;
-            const mainCat = document.getElementById('mainCat').value;
-            const subCat = document.getElementById('subCat').value;
-            const type = document.getElementById('prodType').value;
-            const image = document.getElementById('productImage').value;
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); 
 
+        const title = document.getElementById('productTitle').value;
+        const price = document.getElementById('productPrice').value;
+        const desc = document.getElementById('productDesc').value;
+        const mainCat = document.getElementById('mainCat').value;
+        const subCat = document.getElementById('subCat').value;
+        const type = document.getElementById('prodType').value;
+        
+        // Get the file from the input
+        const imageFile = document.getElementById('productImage').files[0];
+
+        // Function to process and save the product
+        const handleSave = (imageData) => {
             if (typeof addProduct === "function") {
-                addProduct(title, price, desc, mainCat, subCat, type, image);
+                addProduct(title, price, desc, mainCat, subCat, type, imageData);
                 alert("Produkt sparad!");
                 e.target.reset(); 
-            } else {
-                console.error("Funktionen addProduct hittades inte i script.js");
             }
-        });
-    }
+        };
+
+        if (imageFile) {
+            const reader = new FileReader();
+            
+            // Convert image to Base64 string
+            reader.onload = function(event) {
+                handleSave(event.target.result);
+            };
+            
+            reader.readAsDataURL(imageFile);
+        } else {
+            // Use placeholder if no image is uploaded
+            handleSave("assets/placeholder.png");
+        }
+    });
+}
 </script>
 
 </body>
