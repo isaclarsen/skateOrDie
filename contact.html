@@ -1,100 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skate or Die - Contact</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Skate or Die - Contact</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
 
-    <script type="module" src="./js/main.js"></script>
+        <script type="module" src="./js/main.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        ></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                        },
+                        colors: {
+                            "neon-yellow": "#ffff00",
+                            "dark-bg": "#111",
+                        },
                     },
-                    colors: {
-                        'neon-yellow': '#ffff00',
-                        'dark-bg': '#111',
-                    }
-                }
-            }
-        }
-    </script>
-</head>
+                },
+            };
+        </script>
+    </head>
 
-<body class="bg-dark-bg text-white font-sans antialiased">
+    <body class="bg-dark-bg text-white font-sans antialiased">
+        <header class="border-b border-gray-800 p-6">
+            <div
+                class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+            >
+                <div class="flex items-center gap-3">
+                    
+                    <h1
+                        class="text-2xl font-black italic tracking-tighter uppercase"
+                    >
+                        Skate or Die
+                    </h1>
+                </div>
 
-<header class="border-b border-gray-800 p-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <nav>
+                    <ul
+                        class="flex gap-6 text-sm font-bold uppercase tracking-wide"
+                    >
+                        <li>
+                            <a
+                                href="index.html"
+                                class="hover:text-neon-yellow transition-colors"
+                                >Start</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="products.html"
+                                class="hover:text-neon-yellow transition-colors"
+                                >Shop</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="news.html"
+                                class="hover:text-neon-yellow transition-colors"
+                                >News</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="contact.html"
+                                class="text-neon-yellow underline decoration-2 underline-offset-4"
+                                >Kontakt</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
 
-        <div class="flex items-center gap-3">
-            <img src="logo.png" alt="Skate or Die logotyp" class="h-10 w-auto"> <h1 class="text-2xl font-black italic tracking-tighter uppercase">Skate or Die</h1>
-        </div>
+                <div class="flex items-center gap-4">
+                    <button
+                        type="button"
+                        class="text-sm font-bold uppercase hover:text-gray-300"
+                    >
+                        Login
+                    </button>
 
-        <nav>
-            <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
-                <li><a href="index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
-                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
-                <li><a href="news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
-                <li><a href="contact.html" class="text-neon-yellow underline decoration-2 underline-offset-4">Kontakt</a></li>
-            </ul>
-        </nav>
+                    <form
+                        class="flex items-center border border-gray-700 bg-black/50 p-1"
+                        role="search"
+                    >
+                        <label for="search-input-c" class="sr-only">Search</label>
+                        <input
+                            id="search-input-c"
+                            class="bg-transparent text-white px-2 py-1 text-sm focus:outline-none w-32 placeholder-gray-500"
+                            placeholder="Sök…"
+                        />
+                        <button
+                            type="submit"
+                            class="bg-white text-black text-xs font-bold px-3 py-1 uppercase hover:bg-neon-yellow transition-colors"
+                        >
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
 
-        <div class="flex items-center gap-4">
-            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
+        <main
+            class="min-h-screen flex flex-col items-center justify-center p-6"
+        >
+            <div class="w-full max-w-lg">
+                <h1 class="text-6xl font-black uppercase leading-none mb-2">
+                    What's up?
+                </h1>
+                <p class="text-gray-400 mb-10 text-lg">
+                    Any questions? Fill out the form!
+                </p>
 
-            <form class="flex items-center border border-gray-700 bg-black/50 p-1" role="search">
-                <label for="search-input-c" class="sr-only">Search</label>
-                <input id="search-input-c" class="bg-transparent text-white px-2 py-1 text-sm focus:outline-none w-32 placeholder-gray-500" placeholder="Search...">
-                <button type="submit" class="bg-white text-black text-xs font-bold px-3 py-1 uppercase hover:bg-neon-yellow transition-colors">Search</button>
-            </form>
-        </div>
-    </div>
-</header>
+                <form id="contact-form" class="space-y-6">
+                    <div class="space-y-2">
+                        <label
+                            for="title"
+                            class="block text-xs font-bold uppercase tracking-wider text-gray-500"
+                            >Title</label
+                        >
+                        <input
+                            type="text"
+                            id="title"
+                            name="user_title"
+                            placeholder="What is this about?"
+                            required
+                            class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors"
+                        />
+                    </div>
 
-<main class="min-h-screen flex flex-col items-center justify-center p-6">
+                    <div class="space-y-2">
+                        <label
+                            for="name"
+                            class="block text-xs font-bold uppercase tracking-wider text-gray-500"
+                            >Name</label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            name="user_name"
+                            placeholder="Your Name..."
+                            required
+                            class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors"
+                        />
+                    </div>
 
-    <div class="w-full max-w-lg">
+                    <div class="space-y-2">
+                        <label
+                            for="email"
+                            class="block text-xs font-bold uppercase tracking-wider text-gray-500"
+                            >E-mail</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="user_email"
+                            placeholder="Enter email..."
+                            required
+                            class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors"
+                        />
+                    </div>
 
-        <h1 class="text-6xl font-black uppercase leading-none mb-2">What's up?</h1>
-        <p class="text-gray-400 mb-10 text-lg">Any questions? Fill out the form!</p>
+                    <div class="space-y-2">
+                        <label
+                            for="message"
+                            class="block text-xs font-bold uppercase tracking-wider text-gray-500"
+                            >Message</label
+                        >
+                        <textarea
+                            name="message"
+                            id="message"
+                            rows="5"
+                            placeholder="Write a message..."
+                            required
+                            class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors resize-none"
+                        ></textarea>
+                    </div>
 
-        <form id="contact-form" class="space-y-6">
-
-            <div class="space-y-2">
-                <label for="name" class="block text-xs font-bold uppercase tracking-wider text-gray-500">Name</label>
-                <input type="text" id="name" name="user_name" placeholder="Your Name..." required
-                       class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors">
+                    <button
+                        type="submit"
+                        class="w-full bg-white text-black font-black uppercase text-xl py-4 hover:bg-neon-yellow transition-colors tracking-wide"
+                    >
+                        Send Message
+                    </button>
+                </form>
             </div>
 
-            <div class="space-y-2">
-                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-gray-500">E-mail</label>
-                <input type="email" id="email" name="user_email" placeholder="Enter email..." required
-                       class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors">
-            </div>
 
-            <div class="space-y-2">
-                <label for="message" class="block text-xs font-bold uppercase tracking-wider text-gray-500">Message</label>
-                <textarea name="message" id="message" rows="5" placeholder="Write a message..." required
-                          class="w-full bg-transparent border-2 border-gray-800 p-4 text-white placeholder-gray-600 focus:outline-none focus:border-neon-yellow transition-colors resize-none"></textarea>
-            </div>
+            <div id="success-msg" class="hidden text-center space-y-4">
+                <div
+                    class="inline-flex items-center justify-center w-20 h-20 bg-neon-yellow rounded-full mb-4"
+                        >
+                            <svg
+                                class="w-10 h-10 text-black"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="3"
+                                    d="M5 13l4 4L19 7"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-4xl font-black uppercase">
+                            Message Sent!
+                        </h2>
+                        <p class="text-gray-400 text-lg italic">
+                            Stay rad. We'll get back to you soon.
+                        </p>
+                        <button
+                            onclick="location.reload()"
+                            class="mt-6 text-xs font-bold uppercase tracking-widest border-b-2 border-neon-yellow hover:text-neon-yellow transition-all"
+                        >
+                            Go back
+                        </button>
+                    </div>
 
-            <button type="submit"
-                    class="w-full bg-white text-black font-black uppercase text-xl py-4 hover:bg-neon-yellow transition-colors tracking-wide">
-                Send Message
-            </button>
-        </form>
-    </div>
+        </main>
+        <script type="text/javascript">
+            (function () {
+                // 1. Initialize with your Public Key
+                emailjs.init("MdOC5qc4MLrdpIhtS");
+            })();
 
-</main>
+            window.onload = function () {
+                const contactForm = document.getElementById("contact-form");
 
-</body>
+                contactForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    // Change button text to show progress
+                    const btn = contactForm.querySelector(
+                        'button[type="submit"]'
+                    );
+                    const originalText = btn.innerText;
+                    btn.innerText = "SENDING...";
+                    btn.disabled = true;
+
+                    // 2. Prepare the parameters to match your EmailJS template
+                    // Your image showed {{name}} and {{title}}
+                    const templateParams = {
+                        name: document.getElementById("name").value,
+                        title:
+                            "Skate Inquiry from " +
+                            document.getElementById("name").value,
+                        user_email: document.getElementById("email").value, // This must match the {{user_email}} in your dashboard
+                        message: document.getElementById("message").value,
+                    };
+
+                    // 3. Send the email
+                    emailjs
+                        .send(
+                            "service_wnfaq3p",
+                            "template_4h5cf9g",
+                            templateParams
+                        )
+                        .then(
+                            function () {
+                                // Hide the form
+                                contactForm.classList.add("hidden");
+                                // Hide the "What's up?" heading and description if you want
+                                document
+                                    .querySelector("h1.text-6xl")
+                                    .classList.add("hidden");
+                                document
+                                    .querySelector("p.text-gray-400")
+                                    .classList.add("hidden");
+
+                                // Show the success message
+                                const successMsg =
+                                    document.getElementById("success-msg");
+                                successMsg.classList.remove("hidden");
+
+                                contactForm.reset();
+                            },
+                            function (error) {
+                                alert(
+                                    "WIPEOUT! Failed to send: " +
+                                        JSON.stringify(error)
+                                );
+                            }
+                        )
+                        .finally(() => {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        });
+                });
+            };
+        </script>
+    </body>
 </html>
