@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script type="module" src="./js/main.js"></script>
+    <script src="./js/script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,6 @@
         }
     </script>
 </head>
-
 <body class="bg-dark-bg text-white font-sans antialiased">
 
 <header class="border-b border-gray-800 p-6">
@@ -41,15 +40,15 @@
 
         <nav>
             <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
-                <li><a href="index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
-                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
-                <li><a href="news.html" class="text-neon-yellow underline decoration-2 underline-offset-4">News</a></li>
-                <li><a href="contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
+                <li><a href="../index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
+                <li><a href="../products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
+                <li><a href="../news.html" class="text-neon-yellow underline decoration-2 underline-offset-4">News</a></li>
+                <li><a href="../contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
             </ul>
         </nav>
 
         <div class="flex items-center gap-4">
-            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
+            <a href="../admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
 
             <form class="flex items-center border border-gray-700 bg-black/50 p-1" role="search">
                 <label for="search-input-c" class="sr-only">Search</label>
@@ -59,5 +58,72 @@
         </div>
     </div>
 </header>
-    <h1>NEWS</h1>
+
+<main class="max-w-7xl mx-auto p-6">
+    <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-8 text-white border-b border-gray-800 pb-4">
+        News <span class="text-neon-yellow not-italic text-2xl align-top">/ Latest Drops</span>
+    </h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+        <aside class="md:col-span-1 space-y-8">
+            
+            <section>
+                <h2 class="text-neon-yellow font-black uppercase text-xl mb-4 tracking-wide border-b border-gray-800 pb-2">Filter View</h2>
+                <ul class="space-y-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                    <li>
+                        <a href="#" onclick="filterNews('all'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            View All
+                        </a>
+                    </li>
+                    <li class="pt-4 border-t border-gray-800 mt-4"></li> <li>
+                        <a href="#" onclick="filterNews('Herr'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Men's Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterNews('Dam'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Women's Collection
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterNews('Skate tillbehör'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Hardgoods
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <div class="md:col-span-3">
+            <div id="product-list-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Enkel filterfunktion för News-sidan
+    function filterNews(category) {
+        if (category === 'all') {
+            // Om 'all', kör renderProducts utan argument (vilket visar hela listan)
+            renderProducts(); 
+        } else {
+            // Annars filtrera på huvudkategori
+            const filtered = products.filter(p => p.category.main === category);
+            renderProducts(filtered);
+        }
+    }
+
+    // När sidan laddas: Visa ALLT
+    document.addEventListener("DOMContentLoaded", () => {
+        renderProducts();
+    });
+</script>
+
 </body>
+</html>
