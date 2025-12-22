@@ -7,7 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script type="module" src="./js/main.js"></script>
+    <script  src="./js/script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,47 +75,34 @@
         </form>
     </section>
 
-    <script>
-        // 1. Your Product Structure
-        class Product {
-            constructor(title, price, description, mainCategory, subCategory, type, image) {
-                this.id = Date.now(); // unique ID based on time
-                this.title = title;
-                this.price = price;
-                this.description = description;
-                this.category = {
-                    main: mainCategory,
-                    sub: subCategory,
-                    type: type
-                };
-                this.image = image || "assets/placeholder.png"; 
-            }
-        }
-
-        // 2. Handle Form Submission
-        document.getElementById('productForm').addEventListener('submit', function(e) {
+ <script>
+    // Se till att ID matchar HTML: "productForm" istället för "add-product-form"
+    const form = document.getElementById('productForm');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault(); 
 
-            // Grab values from the simple HTML inputs
+            // Hämta värden med DE ID-namn som faktiskt finns i din HTML ovan
             const title = document.getElementById('productTitle').value;
             const price = document.getElementById('productPrice').value;
             const desc = document.getElementById('productDesc').value;
-            const main = document.getElementById('mainCat').value;
-            const sub = document.getElementById('subCat').value;
+            const mainCat = document.getElementById('mainCat').value;
+            const subCat = document.getElementById('subCat').value;
             const type = document.getElementById('prodType').value;
-            const img = document.getElementById('productImage').value;
+            const image = document.getElementById('productImage').value;
 
-            // 3. Create a NEW instance using your class structure
-            const newProduct = new Product(title, price, desc, main, sub, type, img);
-
-            // 4. Log the object to see the structured data
-            console.log("Structured Product Created:", newProduct);
-            
-            alert("Saved: " + newProduct.title + " (ID: " + newProduct.id + ")");
-            
-            this.reset();
+            // Kontrollera att addProduct-funktionen (från script.js) är laddad
+            if (typeof addProduct === "function") {
+                addProduct(title, price, desc, mainCat, subCat, type, image);
+                alert("Produkt tillagd!");
+                e.target.reset(); 
+            } else {
+                console.error("Funktionen addProduct hittades inte. Kontrollera att script.js laddas korrekt.");
+            }
         });
-    </script>
+    }
+</script>
 
 </body>
 </html>
