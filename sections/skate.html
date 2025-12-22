@@ -6,7 +6,7 @@
     <title>Skate or Die - Skate</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script type="module" src="./js/main.js"></script>
+    <script src="../js/script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,15 +39,15 @@
 
         <nav>
             <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide">
-                <li><a href="index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
-                <li><a href="products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
-                <li><a href="news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
-                <li><a href="contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
+                <li><a href="../index.html" class="hover:text-neon-yellow transition-colors">Start</a></li>
+                <li><a href="../products.html" class="hover:text-neon-yellow transition-colors">Shop</a></li>
+                <li><a href="../news.html" class="hover:text-neon-yellow transition-colors">News</a></li>
+                <li><a href="../contact.html" class="hover:text-neon-yellow transition-colors">Kontakt</a></li>
             </ul>
         </nav>
 
         <div class="flex items-center gap-4">
-            <a href="admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
+            <a href="../admin-file.html" class="text-sm font-bold uppercase hover:text-neon-yellow transition-colors">Login</a>
 
             <form class="flex items-center border border-gray-700 bg-black/50 p-1" role="search">
                 <label for="search-input-c" class="sr-only">Search</label>
@@ -58,31 +58,91 @@
     </div>
 </header>
 
-    <main class="subcategory-page">
-        <h1>Skate</h1>
+<main class="max-w-7xl mx-auto p-6">
+    <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-8 text-white border-b border-gray-800 pb-4">
+        Skate <span class="text-neon-yellow not-italic text-2xl align-top">/ Hardgoods</span>
+    </h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+        <aside class="md:col-span-1 space-y-8">
+            
+            <section>
+                <h2 class="text-neon-yellow font-black uppercase text-xl mb-4 tracking-wide border-b border-gray-800 pb-2">Hardware</h2>
+                <ul class="space-y-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                    <li>
+                        <a href="#" onclick="filterSkate('sub', 'Decks'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Decks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterSkate('sub', 'Trucks'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Trucks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="filterSkate('sub', 'Wheels & Bearings'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Wheels & Bearings
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-neon-yellow font-black uppercase text-xl mb-4 tracking-wide border-b border-gray-800 pb-2">Completes</h2>
+                <ul class="space-y-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                    <li>
+                        <a href="#" onclick="filterSkate('sub', 'Färdiga brädor'); return false;" class="group hover:text-white transition-colors flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-neon-yellow rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span> 
+                            Complete Boards
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            
+            <div class="pt-6 border-t border-gray-800">
+                <button onclick="filterSkate('all')" class="group w-full bg-white text-black font-black uppercase py-3 hover:bg-neon-yellow transition-colors tracking-widest text-xs border border-transparent hover:border-white flex justify-center items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    Visa Allt Skate
+                </button>
+            </div>
+        </aside>
+
+        <div class="md:col-span-3">
+            <div id="product-list-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Denna funktion är specifik för Skate-sidan
+    // Huvudkategorin i databasen heter "Skate tillbehör"
+    function filterSkate(criteria, value) {
         
-        <div class="subcategory-list">
-            <section class="sub-group">
-                <h2><a href="#">Decks</a></h2>
-            </section>
+        let filteredList = [];
 
-            <section class="sub-group">
-                <h2><a href="#">Wheels & Bearings</a></h2>
-            </section>
+        if (criteria === 'all') {
+            // Hämta allt i "Skate tillbehör"
+            filteredList = products.filter(p => p.category.main === "Skate tillbehör");
+        } else {
+            // Hämta specifika delar (t.ex. sub === 'Decks')
+            filteredList = products.filter(p => 
+                p.category.main === "Skate tillbehör" && p.category[criteria] === value
+            );
+        }
 
-            <section class="sub-group">
-                <h2><a href="#">Wheels & Bearings</a></h2>
-            </section>
+        renderProducts(filteredList);
+    }
 
-            <section class="sub-group">
-                <h2><a href="#">Complete boards</a></h2>
-            </section>
-        </div>
+    // Körs vid start
+    document.addEventListener("DOMContentLoaded", () => {
+        filterSkate('all');
+    });
+</script>
 
-        <div id="product-list-container">
-            <h3>Products: </h3>
-        </div>
-    </main>
-
-    </body>
+</body>
 </html>

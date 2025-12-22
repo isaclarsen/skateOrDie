@@ -74,30 +74,52 @@ function filterProducts(categoryType, categoryValue) {
 
 // renders products to the DOM
 function renderProducts(listToRender = products) {
-    const container = document.getElementById("product-list-container"); // must have this ID in HTML
+    const container = document.getElementById("product-list-container"); 
     
-    // if the container doesn't exist, stop
     if (!container) return; 
 
-    container.innerHTML = ""; // clear current content
+    container.innerHTML = ""; 
 
     if (listToRender.length === 0) {
-        container.innerHTML = "<p>Inga produkter hittades.</p>";
+        // Styling för tomt resultat
+        container.innerHTML = `
+            <div class="col-span-full text-center py-20 text-gray-500">
+                <p class="text-xl font-bold uppercase">Inga produkter hittades.</p>
+            </div>`;
         return;
     }
 
     listToRender.forEach(product => {
-        // create an HTML card for each product
+        // Vi lägger till Tailwind-klasser direkt i HTML-strängen här
         const cardHTML = `
-            <div class="product-card" data-id="${product.id}">
-                <div class="image-container">
-                    <img src="${product.image}" alt="${product.title}">
+            <div class="group relative border border-gray-800 bg-black hover:border-neon-yellow transition-colors duration-300" data-id="${product.id}">
+                
+                <div class="relative w-full aspect-[4/5] overflow-hidden bg-gray-900">
+                    <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <span class="absolute top-2 left-2 bg-neon-yellow text-black text-xs font-black px-2 py-1 uppercase tracking-wide">
+                        ${product.category.type}
+                    </span>
                 </div>
-                <div class="info-container">
-                    <h3>${product.title}</h3>
-                    <p class="category">${product.category.main} / ${product.category.sub}</p>
-                    <p class="price">${product.price} kr</p>
-                    <button onclick="removeProduct(${product.id})">Ta bort</button>
+
+                <div class="p-4 flex flex-col gap-2">
+                    <h3 class="text-lg font-bold text-white uppercase tracking-tight leading-none group-hover:text-neon-yellow transition-colors">
+                        ${product.title}
+                    </h3>
+                    <p class="text-gray-400 text-xs uppercase font-bold tracking-wide">
+                        ${product.category.main} / ${product.category.sub}
+                    </p>
+                    <div class="mt-2 flex justify-between items-center">
+                        <span class="text-xl font-black text-white">${product.price} kr</span>
+                        
+                        <button onclick="removeProduct(${product.id})" class="text-gray-600 hover:text-red-500 transition-colors text-xs uppercase font-bold" title="Ta bort">
+                            [x]
+                        </button>
+                    </div>
+                    
+                    <button class="w-full mt-2 border border-white text-white font-bold uppercase py-2 text-xs hover:bg-neon-yellow hover:text-black hover:border-neon-yellow transition-colors">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         `;
@@ -132,11 +154,14 @@ function updateSubCategories(mainCategory, subSelectId) {
 // runs when the HTML is loaded
 document.addEventListener("DOMContentLoaded", () => {
     
-    renderProducts();
-
+    // OBS: Vi tar bort renderProducts() härifrån!
+    // Varför? För att vi vill att varje HTML-sida (men.html, products.html)
+    // själva ska få bestämma vad de vill visa.
+    
+    // Fyller dropdowns om vi är på admin-sidan
     populateMainCategories("main-category-select");
 
-    // handling of the main category change in the form
+    // Hanterar ändring av huvudkategori
     const mainSelect = document.getElementById("main-category-select");
     if (mainSelect) {
         mainSelect.addEventListener("change", (e) => {
