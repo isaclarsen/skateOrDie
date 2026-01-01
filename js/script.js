@@ -177,14 +177,14 @@ function initDatabase() {
     if (products.length === 0) {
         
         const startProducts = [
-            { title: "Logo Graphic Tee", price: 349, desc: "Klassisk skate t-shirt.", main: "Herr", sub: "Tröjor", type: "Graphic Tees", image: "https://placehold.co/400x500/111/ffff00?text=T-Shirt" },
-            { title: "Baggy Denim Jeans", price: 899, desc: "Lös passform.", main: "Herr", sub: "Byxor", type: "Jeans", image: "https://placehold.co/400x500/111/ffff00?text=Jeans" },
-            { title: "Oversized Hoodie", price: 699, desc: "Mjuk hoodie.", main: "Dam", sub: "Tröjor", type: "Hoodies & Sweatshirts", image: "https://placehold.co/400x500/111/ffff00?text=Hoodie" },
-            { title: "Cargo Skate Pants", price: 749, desc: "Slitstarka byxor.", main: "Dam", sub: "Byxor", type: "Andra byxor", image: "https://placehold.co/400x500/111/ffff00?text=Cargo+Pants" },
-            { title: "Pro Skate Deck 8.25", price: 649, desc: "7-lagers lönn.", main: "Skate tillbehör", sub: "Decks", type: "Decks", image: "https://placehold.co/400x500/111/ffff00?text=Deck" },
-            { title: "Spitfire Wheels 54mm", price: 499, desc: "Hårda hjul.", main: "Skate tillbehör", sub: "Wheels & Bearings", type: "Wheels & Bearings", image: "https://placehold.co/400x500/111/ffff00?text=Wheels" },
-            { title: "Beanie Black", price: 199, desc: "Värmande mössa.", main: "Unisex", sub: "Accessories", type: "Headwear", image: "https://placehold.co/400x500/111/ffff00?text=Beanie" },
-            { title: "Canvas Backpack", price: 549, desc: "Ryggsäck.", main: "Unisex", sub: "Accessories", type: "Väskor", image: "https://placehold.co/400x500/111/ffff00?text=Bag" }
+            { title: "Logo Graphic Tee", price: 349, desc: "Klassisk skate t-shirt.", main: "Herr", sub: "Tröjor", type: "Graphic Tees", image: "https://www.skatetilldeath.com/cdn/shop/products/thrasher-screaming-logo-santa-cruz-mens-t-shirt-santa-cruz-skatetilldeathcom-123052.webp?v=1697115623&width=1800" },
+            { title: "Baggy Denim Jeans", price: 899, desc: "Lös passform.", main: "Herr", sub: "Byxor", type: "Jeans", image: "https://www.flatspot.com/cdn/shop/files/levi_s_-skate-baggy-5-pocket-jeans-deep-groove-black-3_1300x1500_crop_center.progressive.jpg?v=1699287014" },
+            { title: "Oversized Hoodie", price: 699, desc: "Mjuk hoodie.", main: "Dam", sub: "Tröjor", type: "Hoodies & Sweatshirts", image: "https://i.ebayimg.com/images/g/P~UAAOSw4uRk3neQ/s-l1200.jpg" },
+            { title: "Cargo Skate Pants", price: 749, desc: "Slitstarka byxor.", main: "Dam", sub: "Byxor", type: "Andra byxor", image: "https://scene7.zumiez.com/is/image/zumiez/product_main_medium/Empyre-Ultra-Loose-Natural-Birch-Cargo-Skate-Pants-_383554.jpg" },
+            { title: "Pro Skate Deck 8.25", price: 649, desc: "7-lagers lönn.", main: "Skate tillbehör", sub: "Decks", type: "Decks", image: "https://www.hepcat.se/pub_images/original/Creature---Lockwood-Bloodbath-3D-Pro-Skateboard-Deck---825-2.jpg?timestamp=1743439449" },
+            { title: "Spitfire Wheels 54mm", price: 499, desc: "Hårda hjul.", main: "Skate tillbehör", sub: "Wheels & Bearings", type: "Wheels & Bearings", image: "https://cdn.abicart.com/shop/ws22/65422/art22/h3445/181673445-origpic-00589d.jpg" },
+            { title: "Beanie Black", price: 199, desc: "Värmande mössa.", main: "Unisex", sub: "Accessories", type: "Headwear", image: "https://cdn.skatepro.com/product/400/skatepro-skate-beanie-gn.webp" },
+            { title: "Canvas Backpack", price: 549, desc: "Ryggsäck.", main: "Unisex", sub: "Accessories", type: "Väskor", image: "https://cdn.skatedeluxe.com/thumb/0ObyRUdcslZapGiVVT16L6tiXJk=/fit-in/600x700/filters:fill(white):brightness(-4)/product/166292-0-Dickies-DuckCanvas.jpg" }
         ];
 
         console.log("Databas tom. Laddar in standardprodukter...");
