@@ -5,8 +5,8 @@ const TEMPLATE_ID = "template_4h5cf9g"; // no security, hard coded IDs because o
 const PUBLIC_KEY = "MdOC5qc4MLrdpIhtS"; // no security, hard coded IDs because only mock website
 
 /**
- * Sends a contact email using the template shown in your image.
- * @param {Object} formData - Should contain 'name' and 'title' to match your template.
+ * sends a contact email using the template
+ * @param {Object} formData
  */
 export const sendSkateInquiry = async (formData) => {
   try {
@@ -14,8 +14,8 @@ export const sendSkateInquiry = async (formData) => {
       SERVICE_ID,
       TEMPLATE_ID,
       {
-        name: formData.name,   // Matches {{name}} in your screenshot
-        title: formData.title, // Matches {{title}} in your screenshot
+        name: formData.name,
+        title: formData.title,
         message: formData.message,
         user_email: formData.email,
       },

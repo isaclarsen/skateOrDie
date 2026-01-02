@@ -183,7 +183,7 @@ function initDatabase() {
             { title: "Cargo Skate Pants", price: 749, desc: "Slitstarka byxor.", main: "Dam", sub: "Byxor", type: "Andra byxor", image: "https://scene7.zumiez.com/is/image/zumiez/product_main_medium/Empyre-Ultra-Loose-Natural-Birch-Cargo-Skate-Pants-_383554.jpg" },
             { title: "Pro Skate Deck 8.25", price: 649, desc: "7-lagers lönn.", main: "Skate tillbehör", sub: "Decks", type: "Decks", image: "https://www.hepcat.se/pub_images/original/Creature---Lockwood-Bloodbath-3D-Pro-Skateboard-Deck---825-2.jpg?timestamp=1743439449" },
             { title: "Spitfire Wheels 54mm", price: 499, desc: "Hårda hjul.", main: "Skate tillbehör", sub: "Wheels & Bearings", type: "Wheels & Bearings", image: "https://cdn.abicart.com/shop/ws22/65422/art22/h3445/181673445-origpic-00589d.jpg" },
-            { title: "Beanie Black", price: 199, desc: "Värmande mössa.", main: "Unisex", sub: "Accessories", type: "Headwear", image: "https://cdn.skatepro.com/product/400/skatepro-skate-beanie-gn.webp" },
+            { title: "Beanie Black", price: 199, desc: "Värmande mössa.", main: "Unisex", sub: "Accessories", type: "Headwear", image: "https://www.workingclassheroes.co.uk/images/products/archive/m/me/merinowoolbeanieblack.jpg?width=1998&height=1998&quality=85&mode=pad&format=webp&bgcolor=ffffff" },
             { title: "Canvas Backpack", price: 549, desc: "Ryggsäck.", main: "Unisex", sub: "Accessories", type: "Väskor", image: "https://cdn.skatedeluxe.com/thumb/0ObyRUdcslZapGiVVT16L6tiXJk=/fit-in/600x700/filters:fill(white):brightness(-4)/product/166292-0-Dickies-DuckCanvas.jpg" }
         ];
 
